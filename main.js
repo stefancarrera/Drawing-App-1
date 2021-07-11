@@ -1,108 +1,90 @@
-// let isDrawing = false;
-// const canvas = document.getElementById('canvas');
-// const context = canvas.getContext('2d');
-// canvas.addEventListener('mousemove', (event) => draw(event, context));
 
-// window.onload = () => {
-//   const canvas = document.getElementById('canvas');
-//   const context = canvas.getContext('2d');
+const canvas = document.getElementById('canvas');
+const colorPicker = document.getElementById('colorPicker');
+const widthPicker = document.getElementById('widthPicker');
+const clearCanvas = document.getElementById('clearCanvas');
+const undoStroke = document.getElementById('undoStroke');
+const brush = document.getElementById('brush');
+const eraser = document.getElementById('eraser');
 
-//   canvas.addEventListener('mousedown', startDrawing);
-// };
+let context = canvas.getContext('2d');
 
-// function startDrawing() {
-//   isDrawing = true;
-// }
+let drawColor = '#000000';
+let drawWidth = '2';
+let isDrawing = false;
+let drawingPosArr = [];
+let drawingPosArrIndex = -1;
 
-// canvas.addEventListener('mouseup', stopDrawing);
+canvas.addEventListener('mousedown', start, false);
+canvas.addEventListener('mousemove', draw, false);
+canvas.addEventListener('mouseup', stop, false);
+canvas.addEventListener('mouseout', stop, false);
 
-// function stopDrawing() {
-//   isDrawing = false;
-// }
+canvas.addEventListener('touchstart', start, false);
+canvas.addEventListener('touchmove', draw, false);
+canvas.addEventListener('touchend', stop, false);
 
+function start(event) {
+  isDrawing = true;
+  context.beginPath();
+  context.moveTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
+  event.preventDefault();
+}
 
-// function draw(event, context) {
-//   if (isDrawing) {
-//     context.fillRect(event.pageX, event.pageY, 2, 2);
-//   }
-// }
-
-// function draw(event, canvas) {
-//   if (isDrawing) {
-//     const context = canvas.getContext('2d');
-//     const rect = canvas.getBoundingClientRect();
-
-//     context.fillRect(event.pageX - rect.left, event.pageY - rect.top, 2, 2);
-//   }
-// }
-
-// window.onload = () => {
-//   const canvas = document.getElementById('canvas');
-//   const saveButton = document.getElementById('save');
-//   const loadInput = document.getElementById('load');
-
-//   new Drawing(canvas, saveButton, loadInput);
-// };
-
-class Drawing {
-  constructor(canvas, saveButton, loadInput) {
-    this.isDrawing = false;
-
-    canvas.addEventListener('mousedown', () => this.startDrawing());
-    canvas.addEventListener('mousemove', (event) => this.draw(event));
-    canvas.addEventListener('mouseup', () => this.stopDrawing());
-
-    saveButton.addEventListener('click', () => this.save());
-    loadInput.addEventListener('change', (event) => this.load(event));
-
-    const rect = canvas.getBoundingClientRect();
-
-    this.offsetLeft = rect.left;
-    this.offsetTop = rect.top;
-
-    this.canvas = canvas;
-    this.context = this.canvas.getContext('2d');
+function draw(event) {
+  if (isDrawing) {
+    context.lineTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
+    context.strokeStyle = drawColor;
+    context.lineWidth = drawWidth;
+    context.lineCap = 'round';
+    context.lineJoin = 'round';
+    context.stroke();
   }
-  startDrawing() {
-    this.isDrawing = true;
+  event.preventDefault();
+}
+
+function stop(event) {
+  if (isDrawing) {
+    context.stroke();
+    context.closePath();
+    isDrawing = false;
   }
-  stopDrawing() {
-    this.isDrawing = false;
-  }
-  draw(event) {
-    if (this.isDrawing) {
-      this.context.fillRect(event.pageX - this.offsetLeft, event.pageY - this.offsetTop, 2, 2);
-    }
-  }
-  save() {
-    const data = this.canvas.toDataURL('image/png');
-    const a = document.createElement('a');
-    a.href = data;
-    a.download = 'image.png';
-    a.click();
-  }
-  load(event) {
-    const file = [...event.target.files].pop();
-    this.readTheFile(file)
-      .then((image) => this.loadTheImage(image))
-  }
-  loadTheImage(image) {
-    const img = new Image();
-    const canvas = this.canvas;
-    img.onload = function () {
-      const context = canvas.getContext('2d');
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      context.drawImage(img, 0, 0);
-    };
-    img.src = image;
-  }
-  readTheFile(file) {
-    const reader = new FileReader();
-    return new Promise((resolve) => {
-      reader.onload = (event) => {
-        resolve(event.target.result);
-      };
-      reader.readAsDataURL(file);
-    })
+  event.preventDefault();
+
+  if (event.type != 'mouseout'){
+    drawingPosArr.push(context.getImageData(0, 0, canvas.width, canvas.height));
+    drawingPosArrIndex += 1;
   }
 }
+
+colorPicker.addEventListener('change', function(event){
+  drawColor = colorPicker.value;
+});
+
+widthPicker.addEventListener('change', function(event){
+  drawWidth = widthPicker.value;
+});
+
+clearCanvas.addEventListener('click', function(event){
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  drawingPosArr = [];
+  drawingPosArrIndex = -1;
+});
+
+undoStroke.addEventListener('click', function(event) {
+  if (drawingPosArrIndex <= 0) {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+  } else {
+    drawingPosArrIndex -= 1;
+    drawingPosArr.pop();
+    context.putImageData(drawingPosArr[drawingPosArrIndex], 0, 0);
+  }
+});
+
+brush.addEventListener('click', function(event) {
+  drawColor = colorPicker.value;
+});
+
+eraser.addEventListener('click', function(event) {
+  drawColor = 'white';
+});

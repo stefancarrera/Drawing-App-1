@@ -8,8 +8,16 @@
   <title>Drawing App 1</title>
 </head>
 <body>
-  <div id="canvasDiv">
-    <canvas id="canvas" width="500" height="500"></canvas>
+  <canvas id="canvas" width="1000" height="700"></canvas>
+  <div>
+    <label for="colorPicker">Choose a paint color:</label>
+    <input type="color" id="colorPicker" name="colorPicker" value="#000000">
+    <label for="widthPicker">Brush width:</label>
+    <input type="range" id="widthPicker" name="widthPicker" min="1" max="50" value="2">
+    <input type="button" id="clearCanvas" name="clearCanvas" value="Clear Canvas">
+    <input type="button" id="undoStroke" name="undoStroke" value="Undo Stroke">
+    <input type="button" id="brush" name="brush" value="brush">
+    <input type="button" id="eraser" name="eraser" value="eraser">
   </div>
   <script src="main.js"></script>
 </body>
