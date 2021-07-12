@@ -15,6 +15,8 @@ let isDrawing = false;
 let drawingPosArr = [];
 let drawingPosArrIndex = -1;
 
+const eraserStyle = 'white';
+
 canvas.addEventListener('mousedown', start, false);
 canvas.addEventListener('mousemove', draw, false);
 canvas.addEventListener('mouseup', stop, false);
