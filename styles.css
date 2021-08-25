@@ -2,3 +2,45 @@ canvas {
   border: 2px solid black;
   background-color: white;
 }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  justify-content: space-evenly;
+}
+
+.colorRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.red {
+  width: 25px;
+  height: 25px;
+  background-color: red;
+}
+
+.blue {
+  width: 25px;
+  height: 25px;
+  background-color: blue;
+}
+
+.yellow {
+  width: 25px;
+  height: 25px;
+  background-color: yellow;
+}
+
+.green {
+  width: 25px;
+  height: 25px;
+  background-color: green;
+}
+
+.purple {
+  width: 25px;
+  height: 25px;
+  background-color: purple;
+}
