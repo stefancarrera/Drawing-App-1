@@ -3,11 +3,20 @@ canvas {
   background-color: white;
 }
 
+button {
+  margin: 0.5rem 0.5rem;
+}
+
+input {
+  margin: 0.5rem 0;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
   width: 500px;
   justify-content: space-evenly;
+  border: 2px solid black;
 }
 
 .colorRow {
@@ -43,4 +52,10 @@ canvas {
   width: 25px;
   height: 25px;
   background-color: purple;
+}
+
+.orange {
+  width: 25px;
+  height: 25px;
+  background-color: orange;
 }
