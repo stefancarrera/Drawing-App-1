@@ -6,11 +6,6 @@ const clearCanvas = document.getElementById('clearCanvas');
 const undoStroke = document.getElementById('undoStroke');
 const brush = document.getElementById('brush');
 const eraser = document.getElementById('eraser');
-const red = document.getElementById('red');
-const blue = document.getElementById('blue');
-const yellow = document.getElementById('yellow');
-const green = document.getElementById('green');
-const purple = document.getElementById('purple');
 const baseColor = document.getElementById('baseColor');
 
 
