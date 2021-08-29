@@ -7,7 +7,7 @@ const undoStroke = document.getElementById('undoStroke');
 const brush = document.getElementById('brush');
 const eraser = document.getElementById('eraser');
 const baseColor = document.getElementById('baseColor');
-
+const paintbucket = document.getElementById('paintbucket');
 
 let context = canvas.getContext('2d');
 
@@ -96,3 +96,8 @@ eraser.addEventListener('click', function(event) {
 baseColor.addEventListener('click', function(event) {
   drawColor = event.target.value;
 });
+
+paintbucket.addEventListener('click', function(event) {
+  context.fillStyle = drawColor;
+  context.fillRect(0, 0, canvas.width, canvas.height)
+})
