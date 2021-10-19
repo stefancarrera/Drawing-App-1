@@ -8,28 +8,30 @@
   <title>Drawing App 1</title>
 </head>
 <body>
-  <canvas id="canvas" width="500" height="500"></canvas>
-  <div class="row">
-    <form>
-      <label for="widthPicker">Brush width:</label>
-      <input type="range" id="widthPicker" name="widthPicker" min="1" max="50" value="2">
-    </form>
-    <input type="button" id="clearCanvas" name="clearCanvas" value="Clear">
-    <input type="button" id="undoStroke" name="undoStroke" value="Undo">
-    <input type="button" id="brush" name="brush" value="Brush">
-    <input type="button" id="eraser" name="eraser" value="Eraser">
-    <input type="button" id="paintbucket" name="paintbucket" value="Paintbucket">
-    <form>
-      <label for="colorPicker">Choose a color:</label>
-      <input type="color" id="colorPicker" name="colorPicker" value="#000000">
-    </form>
-    <div id="baseColor" class="colorRow">
-      <button id="red" value="red" class="red"></button>
-      <button id="blue" value="blue" class="blue"></button>
-      <button id="yellow" value="yellow" class="yellow"></button>
-      <button id="green" value="green" class="green"></button>
-      <button id="purple" value="purple" class="purple"></button>
-      <button id="orange" value="orange" class="orange"></button>
+  <div class="container">
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <div class="row">
+      <form>
+        <label for="widthPicker">Brush width:</label>
+        <input type="range" id="widthPicker" name="widthPicker" min="1" max="50" value="2">
+      </form>
+      <input type="button" id="clearCanvas" name="clearCanvas" value="Clear">
+      <input type="button" id="undoStroke" name="undoStroke" value="Undo">
+      <input type="button" id="brush" name="brush" value="Brush">
+      <input type="button" id="eraser" name="eraser" value="Eraser">
+      <input type="button" id="paintbucket" name="paintbucket" value="Paintbucket">
+      <form>
+        <label for="colorPicker">Choose a color:</label>
+        <input type="color" id="colorPicker" name="colorPicker" value="#000000">
+      </form>
+      <div id="baseColor" class="colorRow">
+        <button id="red" value="red" class="red"></button>
+        <button id="blue" value="blue" class="blue"></button>
+        <button id="yellow" value="yellow" class="yellow"></button>
+        <button id="green" value="green" class="green"></button>
+        <button id="purple" value="purple" class="purple"></button>
+        <button id="orange" value="orange" class="orange"></button>
+      </div>
     </div>
   </div>
   <script src="main.js"></script>
