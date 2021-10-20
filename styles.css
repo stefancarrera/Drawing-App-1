@@ -15,6 +15,18 @@ input {
   margin: 0.5rem 0;
 }
 
+.download {
+  height: 21px;
+  width: 140px;
+  text-decoration: none;
+  color: black;
+  background-color: #efefef;
+  border: black solid 1px;
+  padding: 6px 1px;
+  margin: 0.5rem 0.5rem;
+  text-align: center;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
