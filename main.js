@@ -20,6 +20,11 @@ let drawingPosArrIndex = -1;
 
 const eraserStyle = 'white';
 
+window.addEventListener('load', () => {
+  context.fillStyle = '#FFFFFF';
+  context.fillRect(0, 0, canvas.width, canvas.height)
+});
+
 canvas.addEventListener('mousedown', start, false);
 canvas.addEventListener('mousemove', draw, false);
 canvas.addEventListener('mouseup', stop, false);
@@ -28,6 +33,7 @@ canvas.addEventListener('mouseout', stop, false);
 canvas.addEventListener('touchstart', start, false);
 canvas.addEventListener('touchmove', draw, false);
 canvas.addEventListener('touchend', stop, false);
+
 
 function start(event) {
   isDrawing = true;
@@ -71,13 +77,6 @@ download.addEventListener('click', () => {
   downloadCanvas();
 });
 
-// download.addEventListener('click', () => {
-//   // download.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-//   let canvas = document.getElementById('canvas');
-//   let dataURL = canvas.toDataURL('image/png');
-//   let url = dataURL.replace(/^data:image\/png/, 'data:application/octet-stream');
-//   download.setAttribute('href', url);
-// });
 
 colorPicker.addEventListener('change', function(event){
   drawColor = colorPicker.value;
