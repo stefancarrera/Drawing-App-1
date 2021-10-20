@@ -8,6 +8,7 @@ const brush = document.getElementById('brush');
 const eraser = document.getElementById('eraser');
 const baseColor = document.getElementById('baseColor');
 const paintbucket = document.getElementById('paintbucket');
+const download = document.getElementById('download');
 
 let context = canvas.getContext('2d');
 
@@ -60,6 +61,23 @@ function stop(event) {
     drawingPosArrIndex += 1;
   }
 }
+
+function downloadCanvas() {
+  const img = canvas.toDataURL();
+  download.setAttribute('href', img);
+}
+
+download.addEventListener('click', () => {
+  downloadCanvas();
+});
+
+// download.addEventListener('click', () => {
+//   // download.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+//   let canvas = document.getElementById('canvas');
+//   let dataURL = canvas.toDataURL('image/png');
+//   let url = dataURL.replace(/^data:image\/png/, 'data:application/octet-stream');
+//   download.setAttribute('href', url);
+// });
 
 colorPicker.addEventListener('change', function(event){
   drawColor = colorPicker.value;
