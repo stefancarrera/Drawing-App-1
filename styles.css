@@ -9,10 +9,26 @@ canvas {
 
 button {
   margin: 0.5rem 0.5rem;
+  border: black solid 1px;
+  border-radius: 5px;
 }
 
 input {
   margin: 0.5rem 0;
+  border-radius: 5px;
+}
+
+.download {
+  height: 21px;
+  width: 140px;
+  text-decoration: none;
+  color: black;
+  background-color: #efefef;
+  border: black solid 1px;
+  border-radius: 5px;
+  padding: 6px 1px;
+  margin: 0.5rem 0.5rem;
+  text-align: center;
 }
 
 .row {
