@@ -15,24 +15,24 @@
         <label for="widthPicker">Brush width:</label>
         <input type="range" id="widthPicker" name="widthPicker" min="1" max="50" value="2">
       </form>
-      <input type="button" id="clearCanvas" name="clearCanvas" value="Clear">
-      <input type="button" id="undoStroke" name="undoStroke" value="Undo">
-      <input type="button" id="brush" name="brush" value="Brush">
-      <input type="button" id="eraser" name="eraser" value="Eraser">
-      <input type="button" id="paintbucket" name="paintbucket" value="Paintbucket">
+      <input type="button" id="clearCanvas" name="clearCanvas" value="Clear" title="Clear the entire Canvas">
+      <input type="button" id="undoStroke" name="undoStroke" value="Undo" title="Undo the last stroke">
+      <input type="button" id="brush" name="brush" value="Brush" title="Click to activate the brush tool">
+      <input type="button" id="eraser" name="eraser" value="Eraser" title="Click to activate the eraser tool">
+      <input type="button" id="paintbucket" name="paintbucket" value="Paintbucket" title="Click to activate the paintbucket to paint the entire canvas one color">
       <form>
         <label for="colorPicker">Choose a color:</label>
-        <input type="color" id="colorPicker" name="colorPicker" value="#000000">
+        <input type="color" id="colorPicker" name="colorPicker" value="#000000" title="Click to select any color">
       </form>
       <div id="baseColor" class="colorRow">
-        <button id="red" value="red" class="red"></button>
-        <button id="blue" value="blue" class="blue"></button>
-        <button id="yellow" value="yellow" class="yellow"></button>
-        <button id="green" value="green" class="green"></button>
-        <button id="purple" value="purple" class="purple"></button>
-        <button id="orange" value="orange" class="orange"></button>
+        <button id="red" value="red" class="red" title="The color red! Like an apple. Or rage!"></button>
+        <button id="blue" value="blue" class="blue" title="The color of sadness or the ocean, or both!"></button>
+        <button id="yellow" value="yellow" class="yellow" title="Yellow! Like the sun, but don't check for yourself"></button>
+        <button id="green" value="green" class="green" title="Envy's color but also that cash money"></button>
+        <button id="purple" value="purple" class="purple" title="The color like the suit from Angus"></button>
+        <button id="orange" value="orange" class="orange" title="Orange, like an orange, the fruit not the color."></button>
       </div>
-      <a id="download" download="canvasImage.png" class="download">Download Drawing</a>
+      <a id="download" download="canvasImage.png" class="download" title="Download the drawing that you just did!">Download Drawing</a>
     </div>
   </div>
   <script src="main.js"></script>
