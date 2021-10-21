@@ -15,14 +15,14 @@
         <label for="widthPicker">Brush width:</label>
         <input type="range" id="widthPicker" name="widthPicker" min="1" max="50" value="2">
       </form>
-      <input type="button" id="clearCanvas" name="clearCanvas" value="Clear">
-      <input type="button" id="undoStroke" name="undoStroke" value="Undo">
-      <input type="button" id="brush" name="brush" value="Brush">
-      <input type="button" id="eraser" name="eraser" value="Eraser">
-      <input type="button" id="paintbucket" name="paintbucket" value="Paintbucket">
+      <input type="button" id="clearCanvas" name="clearCanvas" value="Clear" title="Clear the entire Canvas">
+      <input type="button" id="undoStroke" name="undoStroke" value="Undo" title="Undo the last stroke">
+      <input type="button" id="brush" name="brush" value="Brush" title="Click to activate the brush tool">
+      <input type="button" id="eraser" name="eraser" value="Eraser" title="Click to activate the eraser tool">
+      <input type="button" id="paintbucket" name="paintbucket" value="Paintbucket" title="Click to activate the paintbucket to paint the entire canvas one color">
       <form>
         <label for="colorPicker">Choose a color:</label>
-        <input type="color" id="colorPicker" name="colorPicker" value="#000000">
+        <input type="color" id="colorPicker" name="colorPicker" value="#000000" title="Click to select any color">
       </form>
       <div id="baseColor" class="colorRow">
         <button id="red" value="red" class="red"></button>
