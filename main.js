@@ -21,8 +21,7 @@ let drawingPosArrIndex = -1;
 const eraserStyle = 'white';
 
 window.addEventListener('load', () => {
-  context.fillStyle = '#FFFFFF';
-  context.fillRect(0, 0, canvas.width, canvas.height)
+  fillWhite();
 });
 
 canvas.addEventListener('mousedown', start, false);
@@ -73,6 +72,11 @@ function downloadCanvas() {
   download.setAttribute('href', img);
 }
 
+function fillWhite() {
+  context.fillStyle = '#FFFFFF';
+  context.fillRect(0, 0, canvas.width, canvas.height)
+}
+
 download.addEventListener('click', () => {
   downloadCanvas();
 });
@@ -90,6 +94,7 @@ clearCanvas.addEventListener('click', function(event){
   context.clearRect(0, 0, canvas.width, canvas.height);
   drawingPosArr = [];
   drawingPosArrIndex = -1;
+  fillWhite();
 });
 
 undoStroke.addEventListener('click', function(event) {
